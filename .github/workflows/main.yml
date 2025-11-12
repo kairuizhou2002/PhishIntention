@@ -40,3 +40,17 @@ jobs:
         run: |
           pixi run python -m pip install safety
           pixi run python -m safety check || echo "Security issues found (non-fatal)"
+
+      - name: Run code duplication check (non-fatal)
+        run: |
+          pixi run python -m pip install pylint
+          pixi run python -m pylint \
+            --disable=all \
+            --enable=similarities \
+            --min-similarity-lines=10 \
+            phishintention.py \
+            configs.py \
+            configs/ \
+            modules/ \
+            ocr_lib/ \
+            utils/ || echo "Code duplication check completed (non-fatal)"
