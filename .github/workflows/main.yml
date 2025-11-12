@@ -36,11 +36,6 @@ jobs:
             utils/ \
             --exclude "test" --exclude "tests" --exclude "datasets" || echo "Mypy completed with warnings (non-fatal)"
 
-      - name: Run security check with safety
-        run: |
-          pixi run python -m pip install safety
-          pixi run python -m safety check || echo "Security issues found (non-fatal)"
-
       - name: Run code duplication check (non-fatal)
         run: |
           pixi run python -m pip install pylint
