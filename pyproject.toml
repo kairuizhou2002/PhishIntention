@@ -1,0 +1,19 @@
+[tool.black]
+line-length = 88
+target-version = ['py38']
+extend-exclude = '''
+/(
+  \.pixi
+  | \.venv
+  | \.git
+  | __pycache__
+  | build
+  | dist
+)/
+'''
+
+[tool.isort]
+profile = "black"
+line_length = 88
+skip = [".pixi", ".venv", ".git", "__pycache__", "build", "dist"]
+skip_glob = ["**/.pixi/**", "**/.venv/**"]
