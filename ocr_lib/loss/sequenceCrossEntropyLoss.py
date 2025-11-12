@@ -34,7 +34,7 @@ class SequenceCrossEntropyLoss(nn.Module):
         self.sequence_normalize = sequence_normalize
         self.sample_normalize = sample_normalize
 
-        assert (sequence_normalize and sample_normalize) == False
+        assert not (sequence_normalize and sample_normalize)
 
     def forward(self, input, target, length):
         _assert_no_grad(target)
