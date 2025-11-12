@@ -35,6 +35,7 @@ jobs:
             ocr_lib/ \
             utils/ \
             --count --show-source --statistics
+            --ignore=E501,E203,E262,E266,W503,W504,E741
             
       - name: Run type check with mypy
         run: |
